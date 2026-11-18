@@ -24,6 +24,7 @@ namespace TheGlory
             dgvDatos.AutoGenerateColumns = false;
             AlternarControles(false);
             CargarGrid();
+            CargarComboboxManuales();
         }
 
         private void AlternarControles(bool estado)
@@ -106,7 +107,7 @@ namespace TheGlory
         {
             if (dgvDatos.SelectedRows.Count > 0)
             {
-                // Extraer directamente el objeto de la fila seleccionada
+               
                 if (dgvDatos.SelectedRows[0].DataBoundItem is Persona p)
                 {
                     DialogResult respuesta = MessageBox.Show(
@@ -120,7 +121,7 @@ namespace TheGlory
                     {
                         PersonaDAL.Eliminar(p.codigo);
                         MessageBox.Show("¡Producto eliminado con éxito!");
-                        CargarGrid(); // Refresca la tabla
+                        CargarGrid(); 
                     }
                 }
             }
@@ -192,9 +193,22 @@ namespace TheGlory
 
         }
         private Persona productoSeleccionado = null;
+       
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNombreActualizar.Text) ||
+                string.IsNullOrWhiteSpace(cmbCategoriaActualizar.Text) ||
+                string.IsNullOrWhiteSpace(cmbEstadoActualizar.Text) ||
+                string.IsNullOrWhiteSpace(txtDescripcionActualizar.Text) ||
+                string.IsNullOrWhiteSpace(cmbProveedorActualizar.Text) ||
+                string.IsNullOrEmpty(nudPrecioActualizar.Text) ||
+                string.IsNullOrEmpty(nudStockActualizar.Text))
+            {
+                MessageBox.Show("¡Por favor, completa todos los campos obligatorios!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; 
+            }
+        
             if (productoSeleccionado != null)
             {
 
@@ -216,19 +230,36 @@ namespace TheGlory
             }
         }
 
-        private void cmbCategoriaActualizar_SelectedIndexChanged(object sender, EventArgs e)
+           
+
+
+
+
+
+private void cmbCategoriaActualizar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbCategoriaActualizar.Items.Add("Bebidas");
-            cmbCategoriaActualizar.Items.Add("Snacks");
-            cmbCategoriaActualizar.Items.Add("Postres");
-            cmbCategoriaActualizar.Items.Add("Comida Rápida");
+            
         }
 
         private void cmbProveedorActualizar_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
+        private void CargarComboboxManuales()
+        {           
+            cmbCategoriaActualizar.Items.Clear();
+            cmbCategoriaActualizar.Items.Add("Bebidas");
+            cmbCategoriaActualizar.Items.Add("Snacks");
+            cmbCategoriaActualizar.Items.Add("Postres");
+            cmbCategoriaActualizar.Items.Add("Comidas");
+
+            cmbEstadoActualizar.Items.Clear();
+            cmbEstadoActualizar.Items.Add("Activo");
+            cmbEstadoActualizar.Items.Add("Inactivo");
+
+            cmbProveedorActualizar.Items.Clear();
             cmbProveedorActualizar.Items.Add("Proveedor 1");
             cmbProveedorActualizar.Items.Add("Proveedor 2");
-            cmbProveedorActualizar.Items.Add("Proveedor 3");
         }
     }
 }

@@ -60,9 +60,6 @@
             label10 = new Label();
             label11 = new Label();
             label12 = new Label();
-            cmbEstadoActualizar = new ComboBox();
-            cmbCategoriaActualizar = new ComboBox();
-            cmbProveedorActualizar = new ComboBox();
             nudStockActualizar = new NumericUpDown();
             nudPrecioActualizar = new NumericUpDown();
             txtDescripcionActualizar = new TextBox();
@@ -70,6 +67,9 @@
             txtNombreActualizar = new TextBox();
             label13 = new Label();
             btnGuardarActualizacion = new Button();
+            cmbEstadoActualizar = new ComboBox();
+            cmbCategoriaActualizar = new ComboBox();
+            cmbProveedorActualizar = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -398,7 +398,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(755, 399);
+            label11.Location = new Point(759, 403);
             label11.Margin = new Padding(2, 0, 2, 0);
             label11.Name = "label11";
             label11.Size = new Size(72, 19);
@@ -409,44 +409,12 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(755, 440);
+            label12.Location = new Point(765, 440);
             label12.Margin = new Padding(2, 0, 2, 0);
             label12.Name = "label12";
             label12.Size = new Size(53, 19);
             label12.TabIndex = 17;
             label12.Text = "Estado:";
-            // 
-            // cmbEstadoActualizar
-            // 
-            cmbEstadoActualizar.FormattingEnabled = true;
-            cmbEstadoActualizar.Items.AddRange(new object[] { "ACTIVO", "INACTIVO" });
-            cmbEstadoActualizar.Location = new Point(831, 436);
-            cmbEstadoActualizar.Margin = new Padding(2);
-            cmbEstadoActualizar.Name = "cmbEstadoActualizar";
-            cmbEstadoActualizar.Size = new Size(129, 23);
-            cmbEstadoActualizar.TabIndex = 18;
-            // 
-            // cmbCategoriaActualizar
-            // 
-            cmbCategoriaActualizar.FormattingEnabled = true;
-            cmbCategoriaActualizar.Items.AddRange(new object[] { "ACTIVO", "INACTIVO" });
-            cmbCategoriaActualizar.Location = new Point(831, 399);
-            cmbCategoriaActualizar.Margin = new Padding(2);
-            cmbCategoriaActualizar.Name = "cmbCategoriaActualizar";
-            cmbCategoriaActualizar.Size = new Size(129, 23);
-            cmbCategoriaActualizar.TabIndex = 19;
-            cmbCategoriaActualizar.SelectedIndexChanged += cmbCategoriaActualizar_SelectedIndexChanged;
-            // 
-            // cmbProveedorActualizar
-            // 
-            cmbProveedorActualizar.FormattingEnabled = true;
-            cmbProveedorActualizar.Items.AddRange(new object[] { "ACTIVO", "INACTIVO" });
-            cmbProveedorActualizar.Location = new Point(831, 367);
-            cmbProveedorActualizar.Margin = new Padding(2);
-            cmbProveedorActualizar.Name = "cmbProveedorActualizar";
-            cmbProveedorActualizar.Size = new Size(129, 23);
-            cmbProveedorActualizar.TabIndex = 20;
-            cmbProveedorActualizar.SelectedIndexChanged += cmbProveedorActualizar_SelectedIndexChanged;
             // 
             // nudStockActualizar
             // 
@@ -515,12 +483,44 @@
             btnGuardarActualizacion.UseVisualStyleBackColor = false;
             btnGuardarActualizacion.Click += btnGuardar_Click;
             // 
+            // cmbEstadoActualizar
+            // 
+            cmbEstadoActualizar.FormattingEnabled = true;
+            cmbEstadoActualizar.Items.AddRange(new object[] { "ACTIVO", "INACTIVO" });
+            cmbEstadoActualizar.Location = new Point(831, 440);
+            cmbEstadoActualizar.Margin = new Padding(2);
+            cmbEstadoActualizar.Name = "cmbEstadoActualizar";
+            cmbEstadoActualizar.Size = new Size(110, 23);
+            cmbEstadoActualizar.TabIndex = 18;
+            // 
+            // cmbCategoriaActualizar
+            // 
+            cmbCategoriaActualizar.FormattingEnabled = true;
+            cmbCategoriaActualizar.Items.AddRange(new object[] { "ACTIVO", "INACTIVO" });
+            cmbCategoriaActualizar.Location = new Point(831, 403);
+            cmbCategoriaActualizar.Margin = new Padding(2);
+            cmbCategoriaActualizar.Name = "cmbCategoriaActualizar";
+            cmbCategoriaActualizar.Size = new Size(110, 23);
+            cmbCategoriaActualizar.TabIndex = 30;
+            // 
+            // cmbProveedorActualizar
+            // 
+            cmbProveedorActualizar.FormattingEnabled = true;
+            cmbProveedorActualizar.Items.AddRange(new object[] { "ACTIVO", "INACTIVO" });
+            cmbProveedorActualizar.Location = new Point(831, 371);
+            cmbProveedorActualizar.Margin = new Padding(2);
+            cmbProveedorActualizar.Name = "cmbProveedorActualizar";
+            cmbProveedorActualizar.Size = new Size(110, 23);
+            cmbProveedorActualizar.TabIndex = 31;
+            // 
             // btnProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FloralWhite;
             ClientSize = new Size(1091, 584);
+            Controls.Add(cmbProveedorActualizar);
+            Controls.Add(cmbCategoriaActualizar);
             Controls.Add(btnGuardarActualizacion);
             Controls.Add(label13);
             Controls.Add(txtNombreActualizar);
@@ -528,8 +528,6 @@
             Controls.Add(txtDescripcionActualizar);
             Controls.Add(nudPrecioActualizar);
             Controls.Add(nudStockActualizar);
-            Controls.Add(cmbProveedorActualizar);
-            Controls.Add(cmbCategoriaActualizar);
             Controls.Add(cmbEstadoActualizar);
             Controls.Add(label12);
             Controls.Add(label11);
@@ -548,7 +546,7 @@
             ForeColor = SystemColors.ActiveCaption;
             Margin = new Padding(2);
             Name = "btnProductos";
-            Text = "Categorías";
+            Text = "V";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -592,9 +590,6 @@
         private Label label10;
         private Label label11;
         private Label label12;
-        private ComboBox cmbEstadoActualizar;
-        private ComboBox cmbCategoriaActualizar;
-        private ComboBox cmbProveedorActualizar;
         private NumericUpDown nudStockActualizar;
         private NumericUpDown nudPrecioActualizar;
         private TextBox txtDescripcionActualizar;
@@ -602,5 +597,8 @@
         private TextBox txtNombreActualizar;
         private Label label13;
         private Button btnGuardarActualizacion;
+        private ComboBox cmbEstadoActualizar;
+        private ComboBox cmbCategoriaActualizar;
+        private ComboBox cmbProveedorActualizar;
     }
 }

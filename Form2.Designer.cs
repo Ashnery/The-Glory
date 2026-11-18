@@ -42,11 +42,11 @@
             txtDescripcion = new TextBox();
             nudPrecio = new NumericUpDown();
             nudStock = new NumericUpDown();
-            cmbProveedor = new ComboBox();
-            cmbCategoria = new ComboBox();
-            cmbEstado = new ComboBox();
             btnGuardar = new Button();
             btnCancelar = new Button();
+            cmbEstado = new ComboBox();
+            cmbProveedor = new ComboBox();
+            cmbCategoria = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)nudPrecio).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
             SuspendLayout();
@@ -146,7 +146,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(15, 299);
+            label9.Location = new Point(19, 303);
             label9.Margin = new Padding(2, 0, 2, 0);
             label9.Name = "label9";
             label9.Size = new Size(53, 19);
@@ -195,37 +195,6 @@
             nudStock.Size = new Size(126, 23);
             nudStock.TabIndex = 13;
             // 
-            // cmbProveedor
-            // 
-            cmbProveedor.FormattingEnabled = true;
-            cmbProveedor.Location = new Point(97, 238);
-            cmbProveedor.Margin = new Padding(2);
-            cmbProveedor.Name = "cmbProveedor";
-            cmbProveedor.Size = new Size(129, 23);
-            cmbProveedor.TabIndex = 14;
-            cmbProveedor.SelectedIndexChanged += cmbProveedor_SelectedIndexChanged;
-            // 
-            // cmbCategoria
-            // 
-            cmbCategoria.FormattingEnabled = true;
-            cmbCategoria.Location = new Point(97, 270);
-            cmbCategoria.Margin = new Padding(2);
-            cmbCategoria.Name = "cmbCategoria";
-            cmbCategoria.Size = new Size(129, 23);
-            cmbCategoria.TabIndex = 15;
-            cmbCategoria.SelectedIndexChanged += cmbCategoria_SelectedIndexChanged;
-            // 
-            // cmbEstado
-            // 
-            cmbEstado.FormattingEnabled = true;
-            cmbEstado.Items.AddRange(new object[] { "ACTIVO", "INACTIVO" });
-            cmbEstado.Location = new Point(97, 293);
-            cmbEstado.Margin = new Padding(2);
-            cmbEstado.Name = "cmbEstado";
-            cmbEstado.Size = new Size(129, 23);
-            cmbEstado.TabIndex = 16;
-            cmbEstado.SelectedIndexChanged += cmbEstado_SelectedIndexChanged;
-            // 
             // btnGuardar
             // 
             btnGuardar.BackColor = Color.FromArgb(168, 91, 50);
@@ -254,17 +223,48 @@
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // cmbEstado
+            // 
+            cmbEstado.FormattingEnabled = true;
+            cmbEstado.Items.AddRange(new object[] { "ACTIVO", "INACTIVO" });
+            cmbEstado.Location = new Point(83, 303);
+            cmbEstado.Margin = new Padding(2);
+            cmbEstado.Name = "cmbEstado";
+            cmbEstado.Size = new Size(129, 23);
+            cmbEstado.TabIndex = 16;
+            cmbEstado.SelectedIndexChanged += cmbEstado_SelectedIndexChanged;
+            // 
+            // cmbProveedor
+            // 
+            cmbProveedor.FormattingEnabled = true;
+            cmbProveedor.Items.AddRange(new object[] { "ACTIVO", "INACTIVO" });
+            cmbProveedor.Location = new Point(91, 237);
+            cmbProveedor.Margin = new Padding(2);
+            cmbProveedor.Name = "cmbProveedor";
+            cmbProveedor.Size = new Size(110, 23);
+            cmbProveedor.TabIndex = 19;
+            // 
+            // cmbCategoria
+            // 
+            cmbCategoria.FormattingEnabled = true;
+            cmbCategoria.Items.AddRange(new object[] { "ACTIVO", "INACTIVO" });
+            cmbCategoria.Location = new Point(91, 269);
+            cmbCategoria.Margin = new Padding(2);
+            cmbCategoria.Name = "cmbCategoria";
+            cmbCategoria.Size = new Size(110, 23);
+            cmbCategoria.TabIndex = 20;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FloralWhite;
             ClientSize = new Size(339, 376);
+            Controls.Add(cmbCategoria);
+            Controls.Add(cmbProveedor);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(cmbEstado);
-            Controls.Add(cmbCategoria);
-            Controls.Add(cmbProveedor);
             Controls.Add(nudStock);
             Controls.Add(nudPrecio);
             Controls.Add(txtDescripcion);
@@ -305,10 +305,10 @@
         private TextBox txtDescripcion;
         private NumericUpDown nudPrecio;
         private NumericUpDown nudStock;
-        private ComboBox cmbProveedor;
-        private ComboBox cmbCategoria;
-        private ComboBox cmbEstado;
         private Button btnGuardar;
         private Button btnCancelar;
+        private ComboBox cmbEstado;
+        private ComboBox cmbProveedor;
+        private ComboBox cmbCategoria;
     }
 }

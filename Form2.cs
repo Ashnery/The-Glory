@@ -47,7 +47,7 @@ namespace TheGlory
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            CargarComboboxManuales();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -57,6 +57,17 @@ namespace TheGlory
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+               string.IsNullOrWhiteSpace(cmbCategoria.Text) ||
+               string.IsNullOrWhiteSpace(cmbEstado.Text) ||
+               string.IsNullOrWhiteSpace(txtDescripcion.Text) ||
+               string.IsNullOrWhiteSpace(cmbProveedor.Text) ||
+               string.IsNullOrEmpty(nudPrecio.Text) ||
+               string.IsNullOrEmpty(nudStock.Text))
+            {
+                MessageBox.Show("¡Por favor, completa todos los campos obligatorios!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             try
             {
                 Persona nuevoProducto = new Persona();
@@ -90,6 +101,7 @@ namespace TheGlory
             {
                 MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
+           
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -104,17 +116,28 @@ namespace TheGlory
 
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbCategoria.Items.Add("Bebidas");
-            cmbCategoria.Items.Add("Snacks");
-            cmbCategoria.Items.Add("Postres");
-            cmbCategoria.Items.Add("Comida Rápida");
+            
         }
 
         private void cmbProveedor_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
+        private void CargarComboboxManuales()
+        {
+            cmbCategoria.Items.Clear();
+            cmbCategoria.Items.Add("Bebidas");
+            cmbCategoria.Items.Add("Snacks");
+            cmbCategoria.Items.Add("Postres");
+            cmbCategoria.Items.Add("Comidas");
+
+            cmbEstado.Items.Clear();
+            cmbEstado.Items.Add("Activo");
+            cmbEstado.Items.Add("Inactivo");
+
+            cmbProveedor.Items.Clear();
             cmbProveedor.Items.Add("Proveedor 1");
             cmbProveedor.Items.Add("Proveedor 2");
-            cmbProveedor.Items.Add("Proveedor 3");
         }
     }
 }
